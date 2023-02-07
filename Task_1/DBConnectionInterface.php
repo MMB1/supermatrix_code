@@ -23,14 +23,14 @@ class MysqlConnect implements DBConnectionInterface{
   public $pass   = DB_PASS;
   public $dbname = DB_NAME;
   
-  public $link;
+  public $db;
   public $error;
 
   public dbconnection(){
-    $this->link = new mysqli($this->host, $this->user, $this->pass,
+    $this->db = new mysqli($this->host, $this->user, $this->pass,
     $this->dbname);
-    if(!$this->link){ // If found any error
-      $this->error ="Connection fail".$this->link->connect_error;
+    if(!$this->db){ // If found any error
+      $this->error ="Connection fail".$this->db->connect_error;
       return false;
     }
   }
