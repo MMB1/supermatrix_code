@@ -1,6 +1,6 @@
   <?php
 
-include 'database.php';
+include 'DBConnectionInterface.php';
 
 class user {
   private $id;

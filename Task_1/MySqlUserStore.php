@@ -1,5 +1,5 @@
 <?php
-namespace Database;
+namespace DBConnectionInterface;
 
 /**
  * Impliment user methods add and get by id
@@ -10,7 +10,7 @@ class MySqlUserStore implements UserStore
 {
     public $db;
 
-    public function __construct(Database $db)
+    public function __construct(DBConnectionInterface $db)
     {
         $this->db = $db;
 
