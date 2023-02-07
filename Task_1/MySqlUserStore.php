@@ -19,8 +19,8 @@ class MySqlUserStore implements UserStore
     // User can add their inforamtion 
     public function Create( User $user) : User
     {
-        $query = "INSERT INTO users (first_name, last_name,mobile_numbber,email) VALUES (?, ?, ?, ?)";
-        $user->id = $this->db->insert($query, array($user->first_name, $user->last_name, $user->mobile_numbber, $user->email));
+        $query = "INSERT INTO users (name) VALUES (?)";
+        $user->id = $this->db->insert($query, array($user->name));
         return $user;
     }
 
@@ -32,10 +32,7 @@ class MySqlUserStore implements UserStore
         if(count($result) > 0) {
             $user = new User();
             $user->id = $result[0]['id'];
-            $user->first_name = $result[0]['first_name'];
-            $user->last_name = $result[0]['last_name'];
-            $user->mobile_numbber = $result[0]['mobile_numbber'];
-            $user->email = $result[0]['email'];
+            $user->name = $result[0]['name'];
             return $user;
         }
         return null;
